@@ -1,0 +1,14 @@
+server:
+  port: 8001
+  shutdown: graceful
+
+spring:
+  application:
+    name: weather-api
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:weather_database;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS weather_schema
+    username: username
+    password: password
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect

@@ -7,13 +7,17 @@ import java.sql.SQLException;
 public class Config {
 
 	//	This file will contain all the java related config neccesary to connect to the datastore which
-	//	will contain the weather data
+	//	will contain the weather data\
+	public static void connectToH2Db() throws Exception {
+		Class.forName("org.h2.Driver").newInstance();
+		Connection con = DriverManager.getConnection("jdbc:h2:" + "./Database.my", "root", "password");
+	}
 
 	public static void connectToDb() {
 		Connection connection = null;
 
 		try {
-			String url = "jdbc:postgresql://localhost:8001/weatherdatabase";
+			String url = "jdbc:h2://localhost:8001/weather_database";
 			String username = "username";
 			String password = "password";
 			connection = DriverManager.getConnection(url, username, password);
